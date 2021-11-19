@@ -18,7 +18,7 @@ import java.util.List;
 @Controller
 public class DownloadController {
 
-    private final Path statsFilePath = Paths.get("D:\\Coding\\VUZ\\TehProga\\CourseWork13\\src\\main\\resources\\csvfiles\\");
+    private final Path statsFilePath = Paths.get("src\\main\\resources\\csvfiles\\");
 
     @GetMapping("/download")
     public ResponseEntity<InputStreamResource> getFile(@RequestParam(value = "filename", required = true) String filename) throws FileNotFoundException {

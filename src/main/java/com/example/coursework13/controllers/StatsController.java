@@ -18,7 +18,7 @@ public class StatsController {
 
     private final TransactionsRepository transactionsRepository;
     private final CSVLocalWriter csvWriter;
-    private final Path statsFilePath = Paths.get("D:\\Coding\\VUZ\\TehProga\\CourseWork13\\src\\main\\resources\\csvfiles\\stats.csv");
+    private final Path statsFilePath = Paths.get("src\\main\\resources\\csvfiles\\stats.csv");
 
     @Autowired
     public StatsController(TransactionsRepository transactionsRepository, CSVLocalWriter csvWriter) {
