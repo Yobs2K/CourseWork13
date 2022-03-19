@@ -10,8 +10,8 @@ public class TransactionType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long tr_type;
-    private String tr_description;
+    private Long trType;
+    private String trDescription;
 
     public TransactionType() {
 
@@ -25,20 +25,20 @@ public class TransactionType {
         this.id = id;
     }
 
-    public Long getTr_type() {
-        return tr_type;
+    public Long getTrType() {
+        return trType;
     }
 
-    public void setTr_type(Long tr_type) {
-        this.tr_type = tr_type;
+    public void setTrType(Long tr_type) {
+        this.trType = tr_type;
     }
 
-    public String getTr_description() {
-        return tr_description;
+    public String getTrDescription() {
+        return trDescription;
     }
 
-    public void setTr_description(String tr_description) {
-        this.tr_description = tr_description;
+    public void setTrDescription(String tr_description) {
+        this.trDescription = tr_description;
     }
 
 
@@ -46,8 +46,8 @@ public class TransactionType {
     public String toString() {
         return "TransactionType{" +
                 "id=" + id +
-                ", tr_type=" + tr_type +
-                ", tr_description='" + tr_description + '\'' +
+                ", tr_type=" + trType +
+                ", tr_description='" + trDescription + '\'' +
                 '}';
     }
 }

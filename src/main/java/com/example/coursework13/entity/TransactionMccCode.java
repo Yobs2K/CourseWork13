@@ -10,8 +10,8 @@ public class TransactionMccCode {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long mcc_code;
-    private String mcc_description;
+    private Long mccCode;
+    private String mccDescription;
 
     public TransactionMccCode() {
 
@@ -25,28 +25,28 @@ public class TransactionMccCode {
         this.id = id;
     }
 
-    public Long getMcc_code() {
-        return mcc_code;
+    public Long getMccCode() {
+        return mccCode;
     }
 
-    public void setMcc_code(Long mcc_code) {
-        this.mcc_code = mcc_code;
+    public void setMccCode(Long mcc_code) {
+        this.mccCode = mcc_code;
     }
 
-    public String getMcc_description() {
-        return mcc_description;
+    public String getMccDescription() {
+        return mccDescription;
     }
 
-    public void setMcc_description(String mcc_description) {
-        this.mcc_description = mcc_description;
+    public void setMccDescription(String mcc_description) {
+        this.mccDescription = mcc_description;
     }
 
     @Override
     public String toString() {
         return "TransactionMccCode{" +
                 "id=" + id +
-                ", mcc_code=" + mcc_code +
-                ", mcc_description='" + mcc_description + '\'' +
+                ", mcc_code=" + mccCode +
+                ", mcc_description='" + mccDescription + '\'' +
                 '}';
     }
 }

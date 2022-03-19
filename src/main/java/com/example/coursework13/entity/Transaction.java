@@ -10,51 +10,51 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long customer_id;
-    private String tr_datetime;
-    private Long mcc_code;
-    private Long tr_type;
+    private Long customerId;
+    private String trDatetime;
+    private Long mccCode;
+    private Long trType;
     private Double amount;
-    private String term_id;
+    private String termId;
 
     public Long getId() {
         return id;
     }
 
-    public long getCustomer_id() {
-        return customer_id;
+    public long getCustomerId() {
+        return customerId;
     }
 
-    public String getTr_datetime() {
-        return tr_datetime;
+    public String getTrDatetime() {
+        return trDatetime;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    public void setCustomer_id(long customer_id) {
-        this.customer_id = customer_id;
+    public void setCustomerId(long customer_id) {
+        this.customerId = customer_id;
     }
 
-    public void setTr_datetime(String tr_datetime) {
-        this.tr_datetime = tr_datetime;
+    public void setTrDatetime(String tr_datetime) {
+        this.trDatetime = tr_datetime;
     }
 
-    public long getMcc_code() {
-        return mcc_code;
+    public long getMccCode() {
+        return mccCode;
     }
 
-    public void setMcc_code(long mcc_code) {
-        this.mcc_code = mcc_code;
+    public void setMccCode(long mcc_code) {
+        this.mccCode = mcc_code;
     }
 
-    public long getTr_type() {
-        return tr_type;
+    public long getTrType() {
+        return trType;
     }
 
-    public void setTr_type(long tr_type) {
-        this.tr_type = tr_type;
+    public void setTrType(long tr_type) {
+        this.trType = tr_type;
     }
 
     public double getAmount() {
@@ -65,24 +65,24 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public String getTerm_id() {
-        return term_id;
+    public String getTermId() {
+        return termId;
     }
 
-    public void setTerm_id(String term_id) {
-        this.term_id = term_id;
+    public void setTermId(String term_id) {
+        this.termId = term_id;
     }
 
     @Override
     public String toString() {
         return "Transaction{" +
                 "id=" + id +
-                ", customer_id=" + customer_id +
-                ", tr_datetime='" + tr_datetime + '\'' +
-                ", mcc_code=" + mcc_code +
-                ", tr_type=" + tr_type +
+                ", customer_id=" + customerId +
+                ", tr_datetime='" + trDatetime + '\'' +
+                ", mcc_code=" + mccCode +
+                ", tr_type=" + trType +
                 ", amount=" + amount +
-                ", term_id='" + term_id + '\'' +
+                ", term_id='" + termId + '\'' +
                 '}';
     }
 }
