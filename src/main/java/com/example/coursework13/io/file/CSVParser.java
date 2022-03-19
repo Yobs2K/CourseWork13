@@ -1,6 +1,6 @@
 package com.example.coursework13.io.file;
 
-import com.example.coursework13.exceptions.CsvParseException;
+import com.example.coursework13.exception.CsvParseException;
 import com.opencsv.bean.CsvToBeanBuilder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;

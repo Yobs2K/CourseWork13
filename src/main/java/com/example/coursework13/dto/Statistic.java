@@ -1,9 +1,8 @@
-package com.example.coursework13.entities;
+package com.example.coursework13.dto;
 
 import com.opencsv.bean.CsvBindByName;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Statistic implements StatisticView {

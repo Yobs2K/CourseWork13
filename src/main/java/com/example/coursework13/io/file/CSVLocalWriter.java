@@ -1,6 +1,6 @@
 package com.example.coursework13.io.file;
 
-import com.example.coursework13.entities.Statistic;
+import com.example.coursework13.dto.Statistic;
 import com.opencsv.CSVWriter;
 import com.opencsv.bean.StatefulBeanToCsv;
 import com.opencsv.bean.StatefulBeanToCsvBuilder;

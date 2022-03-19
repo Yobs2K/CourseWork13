@@ -1,4 +1,4 @@
-package com.example.coursework13.controllers;
+package com.example.coursework13.controller;
 
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
@@ -13,7 +13,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
 
 @Controller
 public class DownloadController {

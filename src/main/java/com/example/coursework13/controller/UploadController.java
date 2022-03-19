@@ -1,14 +1,14 @@
-package com.example.coursework13.controllers;
+package com.example.coursework13.controller;
 
-import com.example.coursework13.entities.CustomerGender;
-import com.example.coursework13.entities.Transaction;
-import com.example.coursework13.entities.TransactionMccCode;
-import com.example.coursework13.entities.TransactionType;
+import com.example.coursework13.entitiy.CustomerGender;
+import com.example.coursework13.entitiy.Transaction;
+import com.example.coursework13.entitiy.TransactionMccCode;
+import com.example.coursework13.entitiy.TransactionType;
 import com.example.coursework13.io.file.CSVParser;
-import com.example.coursework13.repositories.CustomerGendersRepository;
-import com.example.coursework13.repositories.TransactionMccCodesRepository;
-import com.example.coursework13.repositories.TransactionTypesRepository;
-import com.example.coursework13.repositories.TransactionsRepository;
+import com.example.coursework13.repository.CustomerGendersRepository;
+import com.example.coursework13.repository.TransactionMccCodesRepository;
+import com.example.coursework13.repository.TransactionTypesRepository;
+import com.example.coursework13.repository.TransactionsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
