@@ -2,9 +2,6 @@ package com.example.coursework13.dto;
 
 import com.opencsv.bean.CsvBindByName;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Statistic implements StatisticView {
 
     @CsvBindByName(column = "tr_type")
@@ -29,22 +26,22 @@ public class Statistic implements StatisticView {
         return trType;
     }
 
+    public void setTrType(Long trType) {
+        this.trType = trType;
+    }
+
     @Override
     public Long getQuantity() {
         return quantity;
     }
 
+    public void setQuantity(Long quantity) {
+        this.quantity = quantity;
+    }
+
     @Override
     public String getOccurency() {
         return occurency;
-    }
-
-    public void setTrType(Long trType) {
-        this.trType = trType;
-    }
-
-    public void setQuantity(Long quantity) {
-        this.quantity = quantity;
     }
 
     public void setOccurency(String occurency) {

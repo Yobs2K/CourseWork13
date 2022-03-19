@@ -1,10 +1,8 @@
 package com.example.coursework13.controller;
 
 import com.example.coursework13.dto.Statistic;
-import com.example.coursework13.dto.StatisticView;
 import com.example.coursework13.io.file.CSVLocalWriter;
 import com.example.coursework13.repository.TransactionsRepository;
-import com.example.coursework13.service.StatisticService;
 import com.example.coursework13.service.StatsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,7 +29,7 @@ public class StatsController {
     }
 
     @GetMapping("/stats")
-    public ModelAndView getStatsPage(){
+    public ModelAndView getStatsPage() {
         ModelAndView modelAndView = new ModelAndView("stats_page");
         List<Statistic> stats = statsService.getAllStats();
         modelAndView.addObject("stats", stats);

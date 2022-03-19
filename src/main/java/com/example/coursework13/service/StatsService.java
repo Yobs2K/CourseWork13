@@ -27,33 +27,31 @@ public class StatsService {
     }
 
 
-    public List<Statistic> getAllStats(){
+    public List<Statistic> getAllStats() {
         List<Statistic> stats;
         stats = statisticService.getStatisticListFromViewList(transactionsRepository.calculateStatistics());
         stats.forEach(
-                x->System.out.printf("%s, %s, %s\n",x.getTrType(), x.getQuantity(), x.getOccurency())
+                x -> System.out.printf("%s, %s, %s\n", x.getTrType(), x.getQuantity(), x.getOccurency())
         );
         try {
             csvWriter.writeDataFromEntityListToCsvFile(stats, statsFilePath, ',');
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
         return stats;
     }
 
-    public List<Statistic> getTop(int topNum){
+    public List<Statistic> getTop(int topNum) {
         List<Statistic> stats;
         stats = statisticService.getStatisticListFromViewList(transactionsRepository.calculateStatistics());
         stats.forEach(
-                x->System.out.printf("%s, %s, %s\n",x.getTrType(), x.getQuantity(), x.getOccurency())
+                x -> System.out.printf("%s, %s, %s\n", x.getTrType(), x.getQuantity(), x.getOccurency())
         );
         stats = stats.subList(0, topNum);
         try {
             csvWriter.writeDataFromEntityListToCsvFile(stats, topFilePath, ',');
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 

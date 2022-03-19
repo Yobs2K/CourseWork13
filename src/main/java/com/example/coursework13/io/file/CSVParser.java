@@ -14,7 +14,7 @@ import java.util.List;
 @Component
 public class CSVParser {
 
-    public  <T> List<T> parseDataFromCsvFileToEntityList(MultipartFile file, Class<T> tClass, char separator) {
+    public <T> List<T> parseDataFromCsvFileToEntityList(MultipartFile file, Class<T> tClass, char separator) {
         List<T> beans;
         try (Reader reader = new BufferedReader(new InputStreamReader(file.getInputStream()))) {
             CsvToBeanBuilder builder = new CsvToBeanBuilder(reader).withType(tClass);
@@ -27,8 +27,6 @@ public class CSVParser {
         }
         return beans;
     }
-
-
 
 
 }

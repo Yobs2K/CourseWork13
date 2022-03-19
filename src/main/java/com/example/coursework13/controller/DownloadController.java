@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -20,13 +19,12 @@ public class DownloadController {
     private final Path statsFilePath = Paths.get("src\\main\\resources\\csvfiles\\");
 
     @GetMapping("/download")
-    public ResponseEntity<InputStreamResource> getFile(@RequestParam(value = "filename", required = true) String filename){
-        File file = new File(statsFilePath.toString()+"\\"+filename);
+    public ResponseEntity<InputStreamResource> getFile(@RequestParam(value = "filename", required = true) String filename) {
+        File file = new File(statsFilePath.toString() + "\\" + filename);
         InputStreamResource resource;
-        try{
+        try {
             resource = new InputStreamResource(new FileInputStream(file));
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             return ResponseEntity.internalServerError().body(null);
         }
 

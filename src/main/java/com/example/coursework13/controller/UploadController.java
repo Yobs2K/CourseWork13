@@ -1,10 +1,5 @@
 package com.example.coursework13.controller;
 
-import com.example.coursework13.io.file.CSVParser;
-import com.example.coursework13.repository.CustomerGendersRepository;
-import com.example.coursework13.repository.TransactionMccCodesRepository;
-import com.example.coursework13.repository.TransactionTypesRepository;
-import com.example.coursework13.repository.TransactionsRepository;
 import com.example.coursework13.service.UploadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
