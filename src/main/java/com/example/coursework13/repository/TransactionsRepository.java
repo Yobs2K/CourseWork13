@@ -10,10 +10,18 @@ import java.util.List;
 
 @Repository
 public interface TransactionsRepository extends JpaRepository<Transaction, Long> {
-    @Query(value = "select tr_type as trType, Count(tr_type) as quantity, concat(round(CAST(Count(tr_type) as float)" +
-            "/(SELECT COUNT (*) FROM transactions)*1000)/10, '%') as occurency from transactions\n" +
-            "Group by tr_type\n" +
-            "Order by quantity desc")
+    @Query(value = "" +
+            "select " +
+            "  tr_type as trType, " +
+            "  count(tr_type) as quantity, " +
+            "  concat(" +
+            "    round(" +
+            "      (cast(count(tr_type) as float))/(select count (*) from transactions)*1000)" +
+            "    /10," +
+            "    '%')" +
+            "  as occurency from transactions\n" +
+            "group by tr_type\n" +
+            "order by quantity desc")
     List<StatisticView> calculateStatistics();
 
 }
