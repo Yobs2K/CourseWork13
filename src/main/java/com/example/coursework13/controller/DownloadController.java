@@ -20,9 +20,16 @@ public class DownloadController {
     private final Path statsFilePath = Paths.get("src\\main\\resources\\csvfiles\\");
 
     @GetMapping("/download")
-    public ResponseEntity<InputStreamResource> getFile(@RequestParam(value = "filename", required = true) String filename) throws FileNotFoundException {
+    public ResponseEntity<InputStreamResource> getFile(@RequestParam(value = "filename", required = true) String filename){
         File file = new File(statsFilePath.toString()+"\\"+filename);
-        InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
+        InputStreamResource resource;
+        try{
+            resource = new InputStreamResource(new FileInputStream(file));
+        }
+        catch (Exception e) {
+            return ResponseEntity.internalServerError().body(null);
+        }
+
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=" + file.getName())
                 .contentType(MediaType.APPLICATION_OCTET_STREAM)

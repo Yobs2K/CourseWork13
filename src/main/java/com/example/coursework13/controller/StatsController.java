@@ -31,7 +31,7 @@ public class StatsController {
     }
 
     @GetMapping("/stats")
-    public ModelAndView getStatsPage() throws Exception {
+    public ModelAndView getStatsPage(){
         ModelAndView modelAndView = new ModelAndView("stats_page");
         List<Statistic> stats = statsService.getAllStats();
         modelAndView.addObject("stats", stats);

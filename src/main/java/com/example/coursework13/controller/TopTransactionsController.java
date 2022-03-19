@@ -31,7 +31,7 @@ public class TopTransactionsController {
     }
 
     @GetMapping("/top_transactions")
-    public ModelAndView getStatsPage() throws Exception {
+    public ModelAndView getStatsPage() {
         ModelAndView modelAndView = new ModelAndView("top_transactions_page");
         List<Statistic> stats = statsService.getTop(5);
         modelAndView.addObject("stats", stats);
