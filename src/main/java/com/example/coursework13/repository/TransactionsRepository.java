@@ -1,7 +1,7 @@
 package com.example.coursework13.repository;
 
 import com.example.coursework13.dto.StatisticView;
-import com.example.coursework13.entitiy.Transaction;
+import com.example.coursework13.entity.Transaction;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

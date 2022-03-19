@@ -1,14 +1,11 @@
 package com.example.coursework13.controller;
 
-import com.example.coursework13.entitiy.CustomerGender;
-import com.example.coursework13.entitiy.Transaction;
-import com.example.coursework13.entitiy.TransactionMccCode;
-import com.example.coursework13.entitiy.TransactionType;
 import com.example.coursework13.io.file.CSVParser;
 import com.example.coursework13.repository.CustomerGendersRepository;
 import com.example.coursework13.repository.TransactionMccCodesRepository;
 import com.example.coursework13.repository.TransactionTypesRepository;
 import com.example.coursework13.repository.TransactionsRepository;
+import com.example.coursework13.service.UploadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,27 +14,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.List;
-
 @Controller
 @RequestMapping("/upload")
 public class UploadController {
 
 
-    private final CSVParser csvParser;
-
-    private final TransactionsRepository transactionsRepository;
-    private final TransactionTypesRepository transactionTypesRepository;
-    private final TransactionMccCodesRepository transactionMccCodesRepository;
-    private final CustomerGendersRepository customerGendersRepository;
+    private final UploadService uploadService;
 
     @Autowired
-    public UploadController(CSVParser csvParser, TransactionsRepository transactionsRepository, TransactionTypesRepository transactionTypesRepository, TransactionMccCodesRepository transactionMccCodesRepository, CustomerGendersRepository customerGendersRepository) {
-        this.csvParser = csvParser;
-        this.transactionsRepository = transactionsRepository;
-        this.transactionTypesRepository = transactionTypesRepository;
-        this.transactionMccCodesRepository = transactionMccCodesRepository;
-        this.customerGendersRepository = customerGendersRepository;
+    public UploadController(UploadService uploadService) {
+        this.uploadService = uploadService;
     }
 
     @GetMapping()
@@ -49,29 +35,13 @@ public class UploadController {
     public String uploadCsvFile(@RequestParam("transaction") MultipartFile transactions,
                                 @RequestParam("transaction_type") MultipartFile transactionTypes,
                                 @RequestParam("mcc_codes") MultipartFile mccCodes,
-                                @RequestParam("gender_train") MultipartFile genderTrain) {
-
-
-
-        transactionsRepository.deleteAll();
-        List<Transaction> transactionList = csvParser
-                .parseDataFromCsvFileToEntityList(transactions, Transaction.class, ',');
-        transactionsRepository.saveAll(transactionList);
-
-        transactionTypesRepository.deleteAll();
-        List<TransactionType> transactionTypeList = csvParser.
-                parseDataFromCsvFileToEntityList(transactionTypes, TransactionType.class, ';');
-        transactionTypesRepository.saveAll(transactionTypeList);
-
-        transactionMccCodesRepository.deleteAll();
-        List<TransactionMccCode> transactionMccCodeList = csvParser.
-                parseDataFromCsvFileToEntityList(mccCodes, TransactionMccCode.class, ';');
-        transactionMccCodesRepository.saveAll(transactionMccCodeList);
-
-        customerGendersRepository.deleteAll();
-        List<CustomerGender> customerGenderList = csvParser.
-                parseDataFromCsvFileToEntityList(genderTrain, CustomerGender.class, ',');
-        customerGendersRepository.saveAll(customerGenderList);
+                                @RequestParam("gender_train") MultipartFile genderTrain
+    ) {
+        uploadService.deleteAll();
+        uploadService.uploadAll(transactions,
+                transactionTypes,
+                mccCodes,
+                genderTrain);
 
         return "redirect:/stats";
     }

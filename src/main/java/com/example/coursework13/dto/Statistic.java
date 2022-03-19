@@ -50,11 +50,4 @@ public class Statistic implements StatisticView {
     public void setOccurency(String occurency) {
         this.occurency = occurency;
     }
-
-    public static List<Statistic> getStatisticListFromViewList (List<StatisticView> statisticViewList) {
-        List <Statistic> statisticList = new ArrayList<Statistic>();
-
-        statisticViewList.forEach(x -> statisticList.add(new Statistic(x.getTrType(), x.getQuantity(), x.getOccurency())));
-        return statisticList;
-    }
 }
